@@ -1,0 +1,23 @@
+<div ng-controller="NotesCtrl">
+    <div id="form">
+        <form name="submitTask" ng-submit="addNote()">
+            <h3>New Note</h3>
+            <textarea ng-model="newNote.note" placeholder="Write a note..." ng-keydown="addByEnter($event)"></textarea>
+            <input type="submit" value="Add">
+        </form> 
+    </div>   
+
+    <div id="list">
+        <h3>Notes for the Task "{{selectedTask.task}}"</h3>        
+        <div>
+            <p ng-repeat="note in notes">{{note.note}}</p>
+        </div>
+    </div>
+    <div id="buttons">
+        <div></div>
+        <div>
+            <button ng-click="goBack()">Back to Task List</button>
+        </div> 
+        <div></div>   
+    </div>
+</div>

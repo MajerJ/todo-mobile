@@ -1,0 +1,42 @@
+<div ng-controller="MyTaskList">
+    <div id="form">
+        <form name="submitTask" ng-submit="addTask()">
+            <h3>New Task</h3>
+            <textarea ng-model="newTask.task" placeholder="Write a new task..." ng-keydown="addByEnter($event)"></textarea>
+            <input type="submit" value="Add">
+        </form> 
+    </div>   
+
+    <div id="list">
+        <h3>Your Personal Task List</h3>        
+        <ul ng-show="list.length" ng-repeat="item in list | orderBy:propertyName:reverse">
+            <li>
+                <label class="label" ng-click="updateTask()">
+                    <input  class="label__checkbox" type="checkbox" ng-model="item.done">
+                    <span class="label__text">
+                        <span class="label__check">
+                            <i class="fa fa-check icon"></i>
+                        </span>
+                    </span>
+                </label>                
+                <a class="tooltip" ng-class="{done: item.done}" ng-href="#!notes/{{item._id}}">{{item.task}}<em> ({{item.date | date}})</em>
+                <span class="tooltiptext">Click to see task notes</span></a>      
+            </li>
+        </ul>
+    </div>
+    <div id="buttons">
+        <div>
+            <button ng-show="list.length" ng-click="removeSelected()">Delete Completed (Ctrl+D)</button>
+        </div>
+        <div>
+            <button ng-show="list.length" ng-click="sortBy('task')">Sort by Alphabet
+                <i class="fa fa-angle-double-up" ng-show="propertyName === 'task'" ng-class="{reverse: reverse}"></i>
+            </button>            
+        </div>
+        <div>
+            <button ng-show="list.length" ng-click="sortBy('date')">Sort by Date
+                <i class="fa fa-angle-double-up" ng-show="propertyName === 'date'" ng-class="{reverse: reverse}"></i>
+            </button>
+        </div>
+    </div>
+</div>
