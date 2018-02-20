@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="ToDo">
+<head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <title>ToDo List 3.0 (AngularJS)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body ng-controller="LoginCtrl" ng-keydown="removeByCtrlD($event)">
+    <div id="header">                
+        <h1>ToDo List 3.0</h1>
+        <p ng-show="user.username">Welcome, {{ user.username }}! | <a href="#" ng-click="logout()">Log Out</a></p>
+    </div>
+        
+    <div ng-view></div>
+   
+<script src="javascript/app.js"></script>
+<script src="javascript/controllers/task-list.js"></script>
+<script src="javascript/controllers/login.js"></script>
+<script src="javascript/controllers/notes.js"></script>
+<script src="javascript/routes.js">
+app.initialize();
+</script>
+</body>
+</html>

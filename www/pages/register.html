@@ -1,0 +1,25 @@
+<div id="main">
+<div id="login">
+    <p id="hi">Create your ToDo List 3.0 account.</p>
+    <form name="regForm" ng-submit="regForm.$valid && register()" accept-charset="utf-8">
+        <div>
+            <label>Username</label>
+            <br>
+            <input type="text" id="field" ng-model="reqUser.username" required/>
+        </div>
+        <div>
+            <label>Password</label>
+            <br>
+            <input type="password" id="field" ng-model="reqUser.password" required/>
+        </div>
+        <div>
+            <input id="submit" type="submit" value="Register"/>
+        </div>        
+        <p>Already have an account? <a href="#!login">Log in</a></p> 
+    </form>
+    <div id="message" ng-show="message.length">
+            <p>{{ message }}</p>
+    </div>
+</div>
+</div>
+    

@@ -1,0 +1,24 @@
+<div id="main">
+<div id="login">
+    <p id="hi">Log in to see your personal task list.</p>
+    <form name="loginForm" ng-submit="loginForm.$valid && login()" accept-charset="utf-8">  
+        <div>
+            <label>Username</label>
+            <br>
+            <input type="text" id="field" ng-model="reqUser.username" required/>
+        </div>
+        <div>
+            <label>Password</label>
+            <br>
+            <input type="password" id="field" ng-model="reqUser.password" required/>
+        </div>
+        <div >
+            <input id="submit" type="submit" value="Log In"/>
+        </div>         
+        <p>Need create an account? <a href="#!register">Sign up</a></p>
+    </form>
+    <div id="message" ng-show="message.length">
+            <p>{{ message }}</p>
+    </div> 
+</div>
+</div>
